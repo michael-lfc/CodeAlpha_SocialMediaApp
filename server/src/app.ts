@@ -12,6 +12,11 @@ import errorMiddleware from "./middleware/error.middleware.js";
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
+
 // Middleware
 app.use(cors());
 app.use(express.json());

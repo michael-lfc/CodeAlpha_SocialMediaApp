@@ -16,11 +16,19 @@ export interface PaginatedResponse<T> {
   comments?: T;
 }
 
+// export interface ApiResponse<T> {
+//   success: boolean;
+//   message?: string;
+//   data: T;
+//   comment?: T;
+// }
+
 export interface ApiResponse<T> {
   success: boolean;
-  message?: string;
-  data: T;
+  message: string;
+  comment: T;
 }
+
 
 // types/auth.types.ts
 export interface AuthResponse {

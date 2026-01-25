@@ -1,7 +1,7 @@
 import type { User } from "./user.types";
 
 
-export interface Comment {
+export interface CommentType {
   _id: string;
   postId: string;
   userId: Pick<User, "_id" | "username" | "profileImage">;

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { createComment } from "../../api/comment.api";
 import { useAuth } from "../../hooks/useAuth";
+import type { CommentType } from "../../types/comment.types";
 
 type CreateCommentProps = {
   postId: string;
-  onCommentAdded: () => void;
+  // onCommentAdded: () => void;
+  onCommentAdded: (newComment: CommentType) => void;
 };
 
 const CreateComment = ({ postId, onCommentAdded }: CreateCommentProps) => {
@@ -21,9 +23,9 @@ const CreateComment = ({ postId, onCommentAdded }: CreateCommentProps) => {
     setLoading(true);
 
     try {
-      await createComment(postId, text);
+      const res = await createComment(postId, text);
       setText("");
-      onCommentAdded();
+      onCommentAdded(res.comment);
     } catch (error) {
       console.error("Failed to create comment", error);
     } finally {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Comment } from "../../types/comment.types";
+import type { CommentType } from "../../types/comment.types";
 import { getCommentsByPostId } from "../../api/comment.api";
 import CommentItem from "./CommentItem";
 import Loader from "../../components/Loader";
@@ -9,7 +9,7 @@ type CommentListProps = {
 };
 
 const CommentList = ({ postId }: CommentListProps) => {
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useState<CommentType[]>([]);
   const [loading, setLoading] = useState(false);
 
   const [page, setPage] = useState(1);

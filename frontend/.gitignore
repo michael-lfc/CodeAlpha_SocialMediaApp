@@ -1,0 +1,34 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite
+dist/
+.vite/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Mac
+.DS_Store
+
+# Build
+build/
+
+# Misc
+.idea/
+*.iml

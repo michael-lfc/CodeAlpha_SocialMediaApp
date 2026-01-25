@@ -1,0 +1,394 @@
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--primary);
+  color: white;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-btn {
+  margin-left: 15px;
+  padding: 8px 12px;
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Form card */
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-card h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--text);
+}
+
+.form-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.form-card button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 4px solid rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.65);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Comment pagination */
+.comment-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comment-pagination button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: #2f2f2f;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.comment-pagination button:hover {
+  transform: translateY(-1px);
+}
+
+.comment-pagination button:disabled {
+  background: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Default button & card styling */
+button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* Create Post */
+.create-post {
+  width: 100%;
+  max-width: 720px;
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.create-post h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.create-post textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  resize: vertical;
+}
+
+.create-post button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.create-post button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Post Card */
+.post-card {
+  width: 100%;
+  max-width: 720px;
+  margin: 15px auto;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Post Card Header */
+.post-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-card__avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-card__name {
+  font-weight: 700;
+}
+
+.post-card__time {
+  font-size: 12px;
+  color: var(--secondary);
+}
+
+.post-card__content {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Post Card Actions */
+.post-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.like-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.like-btn.liked {
+  background: #ff4d4d;
+  border-color: #ff1a1a;
+  color: white;
+}
+
+.like-btn,
+.comment-toggle-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+.post-card__comments {
+  margin-top: 14px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .post-card {
+    margin: 12px 10px;
+    padding: 14px;
+  }
+  .post-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .like-btn,
+  .comment-toggle-btn {
+    width: 100%;
+  }
+}
+
+/* =========================
+   RESPONSIVE STYLES
+   ========================= */
+
+/* Make navbar wrap on small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+  }
+
+  .nav-btn {
+    margin-left: 0;
+  }
+}
+
+/* Smaller padding for mobile */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 14px;
+  }
+
+  .form-card {
+    padding: 16px;
+  }
+}
+
+
+.profile-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  margin-bottom: 1rem;
+}
+
+.follow-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.profile-container button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-container button:hover {
+  opacity: 0.9;
+}
+
+.profile-container input[type="file"] {
+  margin-top: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1.5rem;
+  }
+
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .follow-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    padding: 1rem;
+    margin: 1.2rem auto;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-container button {
+    width: 100%;
+  }
+}

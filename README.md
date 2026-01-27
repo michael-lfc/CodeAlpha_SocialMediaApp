@@ -2,6 +2,9 @@ SocialApp (MERN + TypeScript)
 
 A full-stack social media application built with TypeScript, featuring user authentication, post interactions, comments, and a follow system. The app is designed with clean architecture and a scalable structure, suitable for real-world production environments.
 
+🔗 Live Demo: https://code-alpha-social-media-app-pearl.vercel.app/
+📂 GitHub Repository: https://github.com/michael-lfc/CodeAlpha_SocialMediaApp
+
 ⭐ Key Features
 User Authentication (Register, Login, Logout)
 

@@ -21,6 +21,10 @@ const LoginForm = () => {
     try {
       const res = await loginAPI({ email, password });
 
+      // Save userId + token
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("userId", res.user._id);
+
       // No res.success or res.message here
       setSuccess("Login successful!");
       login(res.user, res.token);

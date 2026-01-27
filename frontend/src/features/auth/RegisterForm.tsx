@@ -22,6 +22,11 @@ const RegisterForm = () => {
     try {
       const res = await registerAPI({ username, email, password });
 
+      // Save userId + token
+      localStorage.setItem("token", res.token);
+      localStorage.setItem("userId", res.user._id);
+      
+
       // No res.success or res.message here
       setSuccess("Registration successful!");
 

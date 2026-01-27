@@ -392,3 +392,51 @@ button {
     width: 100%;
   }
 }
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.comment-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-avatar {
+  width: 28px;        /* smaller size */
+  height: 28px;       /* smaller size */
+  border-radius: 50%; /* make it round */
+  object-fit: cover;
+}
+
+.comment-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.comment-username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.comment-text {
+  font-size: 14px;
+  line-height: 1.4;
+}

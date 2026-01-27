@@ -16,9 +16,19 @@ app.get("/", (req, res) => {
   res.send("API is running");
 });
 
+// Configure CORS
+app.use(
+  cors({
+    origin: [
+      "https://code-alpha-social-media-app-pearl.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 
-// Middleware
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

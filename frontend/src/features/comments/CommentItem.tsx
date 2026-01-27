@@ -1,67 +1,3 @@
-// // import type { Comment } from "../../types/comment.types";
-
-// // type CommentItemProps = {
-// //   comment: Comment;
-// // };
-
-// // const CommentItem = ({ comment }: CommentItemProps) => {
-// //   return (
-// //     <div className="comment-item">
-// //       <div className="comment-user">
-// //         <img
-// //           src={comment.userId.profileImage?.url || "/default-avatar.png"}
-// //           alt={comment.userId.username}
-// //           className="comment-avatar"
-// //         />
-// //         <div className="comment-user-details">
-// //           <p className="comment-username">{comment.userId.username}</p>
-// //           <p className="comment-date">{new Date(comment.createdAt).toLocaleString()}</p>
-// //         </div>
-// //       </div>
-
-// //       <p className="comment-text">{comment.text}</p>
-// //     </div>
-// //   );
-// // };
-
-// // export default CommentItem;
-
-
-// import type { CommentType } from "../../types/comment.types";
-
-// // type CommentItemProps = {
-// //   comment: Comment;
-// // };
-
-// type CreateCommentProps = {
-//   postId: string;
-//   onCommentAdded: (newComment: CommentType) => void;
-// };
-
-// const CommentItem = ({ comment }: CommentItemProps) => {
-//   return (
-//     <div className="comment-item">
-//       <div className="comment-user">
-//         <img
-//           src={comment.userId.profileImage?.url || "/default-avatar.png"}
-//           alt={comment.userId.username}
-//           className="comment-avatar"
-//         />
-//         <div className="comment-user-details">
-//           <p className="comment-username">{comment.userId.username}</p>
-//           <p className="comment-date">
-//             {new Date(comment.createdAt).toLocaleString()}
-//           </p>
-//         </div>
-//       </div>
-
-//       <p className="comment-text">{comment.text}</p>
-//     </div>
-//   );
-// };
-
-// export default CommentItem;
-
 import type { CommentType } from "../../types/comment.types";
 
 type CommentItemProps = {
@@ -69,26 +5,40 @@ type CommentItemProps = {
 };
 
 const CommentItem = ({ comment }: CommentItemProps) => {
+  // If comment is missing, return nothing
+  if (!comment) return null;
+
+  // userId may be a string or object
+  const user =
+    typeof comment.userId === "object" ? comment.userId : null;
+
+  const username = user?.username || "Unknown";
+  const profileImage = user?.profileImage?.url || "/default-avatar.png";
+
   return (
     <div className="comment-item">
       <div className="comment-user">
         <img
-          src={comment.userId.profileImage?.url || "/default-avatar.png"}
-          alt={comment.userId.username}
+          src={profileImage}
+          alt={username}
           className="comment-avatar"
         />
+
         <div className="comment-user-details">
-          <p className="comment-username">{comment.userId.username}</p>
+          <p className="comment-username">{username}</p>
           <p className="comment-date">
-            {new Date(comment.createdAt).toLocaleString()}
+            {comment.createdAt
+              ? new Date(comment.createdAt).toLocaleString()
+              : ""}
           </p>
         </div>
       </div>
 
-      <p className="comment-text">{comment.text}</p>
+      <p className="comment-text">
+        {typeof comment.text === "string" ? comment.text : ""}
+      </p>
     </div>
   );
 };
 
 export default CommentItem;
-

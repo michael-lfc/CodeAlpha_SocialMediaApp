@@ -5,7 +5,6 @@ import type { CommentType } from "../../types/comment.types";
 
 type CreateCommentProps = {
   postId: string;
-  // onCommentAdded: () => void;
   onCommentAdded: (newComment: CommentType) => void;
 };
 
@@ -21,13 +20,12 @@ const CreateComment = ({ postId, onCommentAdded }: CreateCommentProps) => {
     if (!text.trim()) return;
 
     setLoading(true);
-
     try {
       const res = await createComment(postId, text);
       setText("");
-      onCommentAdded(res.comment);
-    } catch (error) {
-      console.error("Failed to create comment", error);
+      onCommentAdded(res.comment);  // <-- fixed here
+    } catch (err) {
+      console.error("Failed to create comment", err);
     } finally {
       setLoading(false);
     }

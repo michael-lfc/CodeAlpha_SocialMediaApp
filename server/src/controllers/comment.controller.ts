@@ -9,32 +9,7 @@ interface AddCommentBody {
   text: string;
 }
 
-// export const addComment = asyncHandler(
-//   async (req: Request, res: Response) => {
-//     const { postId, text } = req.body as AddCommentBody;
 
-//     if (!req.user) {
-//       throw new AppError("Not authenticated", 401);
-//     }
-
-//     if (!text || !postId) {
-//       throw new AppError("Post ID and text are required", 400);
-//     }
-
-//     const comment = await Comment.create({
-//       postId,
-//       userId: req.user._id as Types.ObjectId,
-//       text,
-//     });
-    
-
-//     res.status(201).json({
-//       success: true,
-//       message: "Comment added successfully",
-//       comment,
-//     });
-//   }
-// );
 
 export const addComment = asyncHandler(
   async (req: Request, res: Response) => {
@@ -100,3 +75,34 @@ export const getComments = asyncHandler(
     });
   }
 );
+
+// DELETE COMMENT
+export const deleteComment = asyncHandler(async (req: Request, res: Response) => {
+  const comment = await Comment.findById(req.params.id);
+  if (!comment) throw new AppError("Comment not found", 404);
+
+  if (comment.userId.toString() !== req.user!._id.toString()) {
+    throw new AppError("Not authorized", 401);
+  }
+
+  await Comment.findByIdAndDelete(req.params.id);
+
+  res.status(200).json({ success: true, message: "Comment deleted" });
+});
+
+
+// UPDATE COMMENT
+export const updateComment = asyncHandler(async (req: Request, res: Response) => {
+  const { text } = req.body;
+  const comment = await Comment.findById(req.params.id);
+  if (!comment) throw new AppError("Comment not found", 404);
+
+  if (comment.userId.toString() !== req.user!._id.toString()) {
+    throw new AppError("Not authorized", 401);
+  }
+
+  comment.text = text || comment.text;
+  await comment.save();
+
+  res.status(200).json({ success: true, message: "Comment updated", comment });
+});

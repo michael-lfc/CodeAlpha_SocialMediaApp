@@ -113,3 +113,37 @@ export const toggleLike = asyncHandler(
     });
   }
 );
+
+// DELETE POST
+export const deletePost = asyncHandler(async (req: Request, res: Response) => {
+  const post = await Post.findById(req.params.id);
+
+  if (!post) {
+    throw new AppError("Post not found", 404);
+  }
+
+  if (post.author.toString() !== req.user!._id.toString()) {
+    throw new AppError("Not authorized", 401);
+  }
+
+  // ✅ Replace .remove() with findByIdAndDelete()
+  await Post.findByIdAndDelete(req.params.id);
+
+  res.status(200).json({ success: true, message: "Post deleted" });
+});
+
+// UPDATE POST
+export const updatePost = asyncHandler(async (req: Request, res: Response) => {
+  const { content } = req.body;
+  const post = await Post.findById(req.params.id);
+  if (!post) throw new AppError("Post not found", 404);
+
+  if (post.author.toString() !== req.user!._id.toString()) {
+    throw new AppError("Not authorized", 401);
+  }
+
+  post.content = content || post.content;
+  await post.save();
+
+  res.status(200).json({ success: true, message: "Post updated", post });
+});

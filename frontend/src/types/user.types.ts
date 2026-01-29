@@ -7,14 +7,14 @@ export interface UserPreview {
   };
 }
 
-export interface UserPreview {
-  _id: string;
-  username: string;
-  profileImage?: {
-    url: string;
-    public_id: string;
-  };
-}
+// export interface UserPreview {
+//   _id: string;
+//   username: string;
+//   profileImage?: {
+//     url: string;
+//     public_id: string;
+//   };
+// }
 
 export interface User {
   _id: string;

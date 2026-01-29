@@ -16,12 +16,6 @@ export interface PaginatedResponse<T> {
   comments?: T;
 }
 
-// export interface ApiResponse<T> {
-//   success: boolean;
-//   message?: string;
-//   data: T;
-//   comment?: T;
-// }
 
 export interface ApiResponse<T> {
   success: boolean;
@@ -42,13 +36,3 @@ export interface AuthResponse {
     profileImage?: string;
   };
 }
-
-
-// export interface ApiResponse<T> {
-//   success: boolean;
-//   message?: string;
-//   data?: T;
-//   post?: T;
-//   comment?: T;
-//   user?: T;
-// }

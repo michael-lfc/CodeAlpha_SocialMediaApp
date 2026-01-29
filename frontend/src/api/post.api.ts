@@ -90,16 +90,6 @@ export const toggleLikePost = async (postId: string): Promise<Post> => {
   return data.post;
 };
 
-// export const deletePost = async (postId: string) => {
-//   const { data } = await axios.delete(`/posts/${postId}`);
-//   return data;
-// };
-
-// export const updatePost = async (postId: string, content: string) => {
-//   const { data } = await axios.put(`/posts/${postId}`, { content });
-//   return data.post;  // 🔥 important
-// };
-
 export const deletePost = async (postId: string) => {
   const { data } = await axios.delete(`/posts/${postId}`);
   return data;
